@@ -18,6 +18,7 @@ Follows the steps below to get up and running:
 
 | Package                                      | Description                              | Version (click for changelog)                                                                  |
 | :------------------------------------------- | :--------------------------------------- | :--------------------------------------------------------------------------------------------- |
+| [remark-code-format](packages/code-format)   | Formatting code blocks using Prettier    | [![npm](https://img.shields.io/npm/v/remark-code-format)](packages/code-format/changelog.md)   |
 | [remark-code-preview](packages/code-preview) | Transform code blocks into code previews | [![npm](https://img.shields.io/npm/v/remark-code-preview)](packages/code-preview/changelog.md) |
 
 ## Contributing

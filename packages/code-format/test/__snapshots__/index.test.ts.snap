@@ -1,0 +1,48 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should format code blocks using Prettier with default options 1`] = `
+"\`\`\`js prettier
+foo(
+  reallyLongArg(),
+  omgSoManyParameters(),
+  IShouldRefactorThis(),
+  isThereSeriouslyAnotherOne()
+)
+
+\`\`\`
+"
+`;
+
+exports[`should format code blocks using Prettier with specified parser 1`] = `
+"\`\`\`ts prettier=\\"{ parser: 'typescript' }\\"
+@observer
+class OrderLine {
+  @observable price: number = 0
+}
+
+\`\`\`
+"
+`;
+
+exports[`should handle extended language mappings 1`] = `
+"\`\`\`java prettier
+public class HelloWorld {}
+\`\`\`
+"
+`;
+
+exports[`should handle formatting failures and preserve the original code block 1`] = `
+"\`\`\`ts prettier
+const x number = 1 // missing :
+\`\`\`
+"
+`;
+
+exports[`should handle unsupported code block languages 1`] = `
+"\`\`\`unsupported-language prettier
+const user: { [key: string]: string 
+| number | boolean } = {
+ name: \\"John Doe\\", age: 30 };
+\`\`\`
+"
+`;
