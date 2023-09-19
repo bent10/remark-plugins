@@ -1,0 +1,52 @@
+{
+  "name": "remark-code-preview",
+  "description": "A remark plugin for transforming code blocks into code previews",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Beni Arisandi (https://stilearning.com)",
+  "repository": "https://github.com/bent10/remark-plugins",
+  "homepage": "https://github.com/bent10/remark-plugins/tree/main/packages/code-preview",
+  "license": "MIT",
+  "keywords": [
+    "remark",
+    "remark-plugin",
+    "preview",
+    "snippet",
+    "template",
+    "code",
+    "codefence"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "changelog.md",
+    "readme.md"
+  ],
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "vite build --watch",
+    "build": "vite build --ssr 'src/index.ts' && npm run types",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "types": "tsc src/*.ts -d --emitDeclarationOnly --outDir ./dist",
+    "lint": "tsc --noEmit && eslint . --cache --cache-location ../../node_modules/.eslint",
+    "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
+  },
+  "dependencies": {
+    "attributes-parser": "^1.0.1",
+    "mdast-util-from-markdown": "^2.0.0",
+    "mdast-util-to-markdown": "^2.1.0",
+    "pupa": "^3.1.0",
+    "unist-util-visit": "^5.0.0"
+  }
+}

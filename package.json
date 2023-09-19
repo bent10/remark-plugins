@@ -1,0 +1,43 @@
+{
+  "name": "remark-plugins",
+  "description": "Remark pluginss workspace",
+  "version": "0.0.0-development",
+  "private": true,
+  "author": "Beni Arisandi (https://stilearning.com)",
+  "repository": "https://github.com/bent10/remark-plugins",
+  "bugs": "https://github.com/bent10/remark-plugins/issues",
+  "license": "MIT",
+  "keywords": [
+    "remark",
+    "remark-plugin"
+  ],
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm test --workspaces --if-present",
+    "coverage": "npm run coverage --workspaces --if-present",
+    "types": "npm run types --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "format": "npm run format --workspaces --if-present"
+  },
+  "devDependencies": {
+    "doogu": "^3.2.6",
+    "remark": "^15.0.1",
+    "vite-plugin-cachedir": "^1.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/doogu/eslint"
+  },
+  "prettier": "doogu/prettier.json",
+  "release": {
+    "extends": "doogu/release.config.js"
+  }
+}

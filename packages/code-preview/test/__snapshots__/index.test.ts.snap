@@ -1,0 +1,47 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should not transform code blocks that do not match the test function 1`] = `
+"\`\`\`python
+# This is a Python code block
+print('Hello, World!')
+\`\`\`
+"
+`;
+
+exports[`should transform code blocks into code previews 1`] = `
+"import { Foo } from 'foo'
+
+# Example
+
+<figure class='preview'>
+<figcaption>Code title</figcaption>
+<div class='preview-showcase'>
+<Foo />
+</div>
+<div class='preview-code'>
+
+\`\`\`jsx title=\\"Code title\\"
+<Foo />
+\`\`\`
+
+</div>
+</figure>
+"
+`;
+
+exports[`should use a custom template when provided in options 1`] = `
+"<figure class='foo'>
+<figcaption>{title}</figcaption>
+<div class='foo-preview'>
+<Foo />
+</div>
+<div class='foo-code'>
+
+\`\`\`jsx
+<Foo />
+\`\`\`
+
+</div>
+</figure>
+"
+`;
