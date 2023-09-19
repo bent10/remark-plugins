@@ -71,7 +71,7 @@ The Remark Code Preview Plugin accepts the following options:
 
 ### `template?: string`
 
-The code preview template to use. You can customize the preview layout using placeholders like `{preview}`, `{code}`, codefence meta data (e.g. `{title}`), and your custom [data](#data--key-string-unknown).
+The code preview template to use. You can customize the preview layout using placeholders like `{preview}`, `{code}`, codefence meta data (e.g. `{title}`), and your custom [data](#data--key-string-unknown-).
 
 The default template looks like this:
 
