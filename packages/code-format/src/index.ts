@@ -16,14 +16,12 @@ export default function remarkCodeFormat(options?: prettier.Options) {
     const langs = Object.keys(langMappings)
 
     for (const code of codes) {
-      const lang = code.lang?.toLowerCase() || ''
-
-      if (!langs.includes(lang)) continue
+      if (!langs.includes(String(code.lang).toLowerCase())) continue
 
       const configFile = await prettier.resolveConfig(process.cwd())
       // ```jsx prettier="{ parser: 'babel' }"
       // ```
-      const { prettier: inlineOptions } = parseAttrs(code.meta || '')
+      const { prettier: inlineOptions } = parseAttrs(String(code.meta))
 
       // required `prettier` meta:
       // ```jsx prettier
@@ -32,7 +30,8 @@ export default function remarkCodeFormat(options?: prettier.Options) {
         // preserve the original code block if formatting fails
         try {
           code.value = await prettier.format(code.value, {
-            parser: langMappings[lang as keyof typeof langMappings] || 'babel',
+            parser:
+              langMappings[String(code.lang) as keyof typeof langMappings],
             ...configFile,
             ...options,
             ...(isPlainObject(inlineOptions)
