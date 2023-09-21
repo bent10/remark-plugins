@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should handle sanitizer function 1`] = `
+"\`\`\`html
+<div>&lt;script>alert(\\"Hello!\\");</script></div>
+\`\`\`
+"
+`;
+
+exports[`should render JSX code block with custom renderer 1`] = `
+"\`\`\`html
+<div>Hello, World!</div>
+\`\`\`
+"
+`;
+
+exports[`should unwrap the code block when "unwrap" option is true 1`] = `
+"<div>Hello, World!</div>
+"
+`;

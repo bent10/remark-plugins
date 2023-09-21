@@ -1,21 +1,22 @@
 {
-  "name": "remark-code-eval-jsx",
-  "description": "foo",
+  "name": "remark-code-jsx-renderer",
+  "description": "A remark to render JSX code blocks using a custom renderer and components",
   "version": "0.0.0-development",
   "publishConfig": {
     "access": "public"
   },
   "author": "Beni Arisandi (https://stilearning.com)",
   "repository": "https://github.com/bent10/remark-plugins",
-  "homepage": "https://github.com/bent10/remark-plugins/tree/main/packages/code-code-eval-jsx",
+  "homepage": "https://github.com/bent10/remark-plugins/tree/main/packages/code-jsx-renderer",
   "license": "MIT",
   "keywords": [
     "remark",
     "remark-plugin",
     "jsx",
     "react",
-    "eval",
-    "evaluate",
+    "javascriptreact",
+    "render",
+    "renderer",
     "code",
     "codefence"
   ],
@@ -44,6 +45,12 @@
     "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
   },
   "dependencies": {
-    "unist-util-visit": "^5.0.0"
+    "@babel/core": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
+    "mdast-util-mdx": "^3.0.0",
+    "micromark-extension-mdxjs": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/babel__core": "^7.20.2"
   }
 }
