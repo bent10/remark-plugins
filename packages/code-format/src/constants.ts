@@ -88,3 +88,6 @@ export const EXTENDED_LANG_MAP = {
   svelte: 'svelte',
   toml: 'toml'
 }
+
+export const ATTR_PATTERN =
+  /\s*prettier=([""])?.*?\1$|prettier=([""])?.*?\1\s*/g

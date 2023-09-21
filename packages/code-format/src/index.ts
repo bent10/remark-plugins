@@ -2,7 +2,7 @@ import { parseAttrs } from 'attributes-parser'
 import type { Code, Root } from 'mdast'
 import * as prettier from 'prettier'
 import { selectAll } from 'unist-util-select'
-import { EXTENDED_LANG_MAP, LANG_MAP } from './constants.js'
+import { ATTR_PATTERN, EXTENDED_LANG_MAP, LANG_MAP } from './constants.js'
 
 /**
  * A [remark](https://github.com/remarkjs/remark) plugin for formatting code blocks using Prettier.
@@ -29,6 +29,7 @@ export default function remarkCodeFormat(options?: prettier.Options) {
       if (inlineOptions) {
         // preserve the original code block if formatting fails
         try {
+          code.meta = code.meta?.replace(ATTR_PATTERN, '')
           code.value = await prettier.format(code.value, {
             parser:
               langMappings[String(code.lang) as keyof typeof langMappings],
