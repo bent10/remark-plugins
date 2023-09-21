@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`should format code blocks using Prettier with default options 1`] = `
-"\`\`\`js prettier
+"\`\`\`js
 foo(
   reallyLongArg(),
   omgSoManyParameters(),
@@ -14,7 +14,7 @@ foo(
 `;
 
 exports[`should format code blocks using Prettier with specified parser 1`] = `
-"\`\`\`ts prettier=\\"{ parser: 'typescript' }\\"
+"\`\`\`ts
 @observer
 class OrderLine {
   @observable price: number = 0
@@ -25,14 +25,14 @@ class OrderLine {
 `;
 
 exports[`should handle extended language mappings 1`] = `
-"\`\`\`java prettier
+"\`\`\`java
 public class HelloWorld {}
 \`\`\`
 "
 `;
 
 exports[`should handle formatting failures and preserve the original code block 1`] = `
-"\`\`\`ts prettier
+"\`\`\`ts
 const x number = 1 // missing :
 \`\`\`
 "

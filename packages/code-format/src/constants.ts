@@ -90,4 +90,4 @@ export const EXTENDED_LANG_MAP = {
 }
 
 export const ATTR_PATTERN =
-  /\s*prettier=([""])?.*?\1$|prettier=([""])?.*?\1\s*/g
+  /\s*prettier(?:=([""])?.*?\1)?$|prettier(?:=([""])?.*?\1)?\s*/g
