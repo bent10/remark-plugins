@@ -189,6 +189,7 @@ Default transformation:
 ## Related
 
 - [remark-code-format](https://github.com/bent10/remark-plugins/tree/main/packages/code-format)
+- [remark-code-jsx-renderer](https://github.com/bent10/remark-plugins/tree/main/packages/code-jsx-renderer)
 
 ## Contributing
 

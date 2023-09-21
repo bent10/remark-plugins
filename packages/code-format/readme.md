@@ -28,14 +28,13 @@ const markdown = `
 \`\`\`
 `
 
-remark()
+const file = await remark()
   .use(remarkCodeFormat, {
     /* Prettier options */
   })
-  .process(markdown, (err, file) => {
-    if (err) throw err
-    console.log(String(file))
-  })
+  .process(markdown)
+
+console.log(String(file))
 ```
 
 **🚨 Important:** The `prettier` attribute must be specified in code fence blocks for formatting the code.
@@ -62,6 +61,7 @@ Prettier configuration can be specified in code fence blocks using the `prettier
 
 ## Related
 
+- [remark-code-jsx-renderer](https://github.com/bent10/remark-plugins/tree/main/packages/code-jsx-renderer)
 - [remark-code-preview](https://github.com/bent10/remark-plugins/tree/main/packages/code-preview)
 
 ## Contributing
