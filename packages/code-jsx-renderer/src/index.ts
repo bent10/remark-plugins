@@ -1,3 +1,4 @@
+import { parseAttrs } from 'attributes-parser'
 import { transformSync } from '@babel/core'
 import * as acorn from 'acorn'
 import type { Root } from 'mdast'
@@ -43,10 +44,15 @@ export default function remarkCodeJsxRenderer(
 
   return (mdast: Root) => {
     visit(mdast, 'code', (node, index = 0, parent) => {
+      // support for inline options, only for the `unwrap` option.
+      // ```jsx renderable="{ unwrap: true }"
+      // ```
+      const { renderable } = parseAttrs(String(node.meta))
+
       const code = node.value
       const isRenderable =
         node.meta &&
-        node.meta?.indexOf('renderable') !== -1 &&
+        !!renderable &&
         allowedLangs.indexOf(String(node.lang)) !== -1
 
       if (!code || code === null || !isRenderable) return [SKIP, index + 1]
@@ -59,10 +65,7 @@ export default function remarkCodeJsxRenderer(
           presets: [
             [
               '@babel/preset-react',
-              {
-                runtime: 'automatic',
-                development: false
-              }
+              { runtime: 'automatic', development: false }
             ]
           ]
         })
@@ -80,7 +83,11 @@ export default function remarkCodeJsxRenderer(
           Component(Fragment, jsx, jsxs, ...Object.values(components))
         )
 
-        if (unwrap) {
+        const inlineOptions = isPlainObject(renderable)
+          ? (renderable as Options)
+          : {}
+
+        if (inlineOptions.unwrap || unwrap) {
           const htmlTree = fromMarkdown(html)
           parent?.children.splice(index, 1, ...htmlTree.children)
         } else {
@@ -112,4 +119,15 @@ export default function remarkCodeJsxRenderer(
       data[key] = [value]
     }
   }
+}
+
+/**
+ * Checks if an object is a plain JavaScript object.
+ *
+ * @param obj - The object to check.
+ * @returns `true` if the object is a plain JavaScript object, `false`
+ *   otherwise.
+ */
+function isPlainObject(obj: unknown): obj is Record<string, unknown> {
+  return typeof obj === 'object' && obj !== null && !Array.isArray(obj)
 }

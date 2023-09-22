@@ -87,6 +87,16 @@ This is some code:
 ```
 ````
 
+> ⚠️ This plugin offers support for inline options, specifically tailored
+> to the `unwrap` option. With inline options, you have fine-grained
+> control over the behavior of the `unwrap` feature.
+>
+> ````md
+> ```jsx renderable="{unwrap: true}"
+> // jsx code here
+> ```
+> ````
+
 ## Options
 
 This plugin accepts several options to customize its behavior:

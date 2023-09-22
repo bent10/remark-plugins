@@ -58,6 +58,20 @@ it('should unwrap the code block when "unwrap" option is true', async () => {
   expect(String(file)).toMatchSnapshot()
 })
 
+it('should handle inline `unwrap` option', async () => {
+  const content =
+    '```react renderable="{unwrap: true, jsx: \'ignored\'}"\n<div>Hello, World!</div>\n```\n'
+
+  const file = await remark()
+    .use(remarkCodeJsxRenderer, {
+      ...runtime,
+      renderer: renderToStaticMarkup
+    })
+    .process(content)
+
+  expect(String(file)).toMatchSnapshot()
+})
+
 it('should not modify unsupported code block languages', async () => {
   const content = '```unsupported-language renderable\nconst x = 1\n```\n'
 

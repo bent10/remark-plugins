@@ -12,4 +12,5 @@ export const removeImport: PluginObj = {
   }
 }
 
-export const attrPattern = /\s*renderable$|renderable\s*/
+export const attrPattern =
+  /\s*renderable(?:=([""])?.*?\1)?$|renderable(?:=([""])?.*?\1)?\s*/g
