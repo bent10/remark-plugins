@@ -19,7 +19,7 @@ export type { Options }
  * @returns A function that transforms the MDAST tree.
  */
 export default function remarkCodeJsxRenderer(
-  this: Processor,
+  this: unknown,
   options: Options = {}
 ) {
   const {
@@ -35,7 +35,7 @@ export default function remarkCodeJsxRenderer(
   if (!jsx || !renderer) return
 
   const allowedLangs = ['react', 'javascriptreact', 'jsx']
-  const data = this.data() as Record<string, unknown>
+  const data = (this as Processor).data() as Record<string, unknown>
 
   // Enables MDX syntax
   add('micromarkExtensions', mdxjs({ acorn, addResult: true }))
