@@ -1,3 +1,11 @@
+## remark-code-jsx-renderer [1.1.2](https://github.com/bent10/remark-plugins/compare/remark-code-jsx-renderer@1.1.1...remark-code-jsx-renderer@1.1.2) (2023-09-22)
+
+
+### Bug Fixes
+
+* resolves unknown processor types ([b6ead66](https://github.com/bent10/remark-plugins/commit/b6ead66e5567f252eb748510e2546c3b6a08e703))
+* resolves unwrapped value tree as mdx-jsx node ([58cf2fc](https://github.com/bent10/remark-plugins/commit/58cf2fc916974b3f9e35b508701984e58b490a32))
+
 ## remark-code-jsx-renderer [1.1.1](https://github.com/bent10/remark-plugins/compare/remark-code-jsx-renderer@1.1.0...remark-code-jsx-renderer@1.1.1) (2023-09-22)
 
 
