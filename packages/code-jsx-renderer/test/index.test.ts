@@ -60,11 +60,15 @@ it('should unwrap the code block when "unwrap" option is true', async () => {
 
 it('should handle inline `unwrap` option', async () => {
   const content =
-    '```react renderable="{unwrap: true, jsx: \'ignored\'}"\n<div>Hello, World!</div>\n```\n'
+    '```react renderable="{unwrap: true, jsx: \'ignored\'}"\n<Foo>Hello, World!</Foo>\n```\n'
 
   const file = await remark()
     .use(remarkCodeJsxRenderer, {
       ...runtime,
+      components: {
+        Foo: ({ children }: { children?: string }) =>
+          (runtime as any).jsx('div', { children })
+      },
       renderer: renderToStaticMarkup
     })
     .process(content)

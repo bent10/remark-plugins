@@ -79,7 +79,7 @@ export default function remarkCodeJsxRenderer(
           `return ${result?.code}`
         )
 
-        const html = renderer(
+        const renderedValue = renderer(
           Component(Fragment, jsx, jsxs, ...Object.values(components))
         )
 
@@ -88,13 +88,17 @@ export default function remarkCodeJsxRenderer(
           : {}
 
         if (inlineOptions.unwrap || unwrap) {
-          const htmlTree = fromMarkdown(html)
-          parent?.children.splice(index, 1, ...htmlTree.children)
+          const renderedValueTree = fromMarkdown(renderedValue, {
+            extensions: [mdxjs({ acorn, addResult: true })],
+            mdastExtensions: [mdxFromMarkdown()]
+          })
+
+          parent?.children.splice(index, 1, ...renderedValueTree.children)
         } else {
           Object.assign(node, {
             lang: 'html',
             meta: node.meta?.replace(attrPattern, ''),
-            value: html
+            value: renderedValue
           })
         }
       } catch {
