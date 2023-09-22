@@ -16,7 +16,8 @@
     "snippet",
     "template",
     "code",
-    "codefence"
+    "codefence",
+    "stilearning-remark-plugins"
   ],
   "type": "module",
   "main": "dist/index.js",
