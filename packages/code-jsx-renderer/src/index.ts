@@ -34,7 +34,7 @@ export default function remarkCodeJsxRenderer(
 
   if (!jsx || !renderer) return
 
-  const allowedLangs = ['react', 'javascriptreact', 'jsx', 'tsx']
+  const allowedLangs = ['react', 'javascriptreact', 'jsx']
   const data = this.data() as Record<string, unknown>
 
   // Enables MDX syntax
