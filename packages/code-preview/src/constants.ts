@@ -4,12 +4,12 @@ import type { TestFunction } from './types.js'
  * The default code preview template.
  */
 export const DEFAULT_TEMPLATE = `
-<figure class='preview'>
+<figure className='preview'>
   <figcaption>{title}</figcaption>
-  <div class='preview-showcase'>
+  <div className='preview-showcase'>
     {preview}
   </div>
-  <div class='preview-code'>
+  <div className='preview-code'>
     {code}
   </div>
 </figure>
@@ -17,7 +17,7 @@ export const DEFAULT_TEMPLATE = `
 
 export const DEFAULT_TEST: TestFunction = ({ lang = '' }) => {
   return (
-    ['react', 'jsx', 'vue', 'vue.js', 'vue-template', 'svelte'].indexOf(
+    ['html', 'react', 'jsx', 'vue', 'vue.js', 'vue-template', 'svelte'].indexOf(
       lang as string
     ) !== -1
   )

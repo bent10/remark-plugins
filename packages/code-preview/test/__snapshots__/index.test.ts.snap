@@ -8,25 +8,66 @@ print('Hello, World!')
 "
 `;
 
-exports[`should transform code blocks into code previews 1`] = `
-"import { Foo } from 'foo'
-
-# Example
-
-<figure class='preview'>
-<figcaption>Code title</figcaption>
-<div class='preview-showcase'>
-<Foo />
-</div>
-<div class='preview-code'>
-
-\`\`\`jsx title=\\"Code title\\"
-<Foo />
-\`\`\`
-
-</div>
-</figure>
+exports[`should support mdx compiler 1`] = `
+"/*@jsxRuntime automatic @jsxImportSource react*/
+import {Fragment as _Fragment, jsx as _jsx, jsxs as _jsxs} from \\"react/jsx-runtime\\";
+import {Foo} from 'foo';
+function _createMdxContent(props) {
+  const _components = Object.assign({
+    h1: \\"h1\\",
+    figure: \\"figure\\",
+    p: \\"p\\",
+    figcaption: \\"figcaption\\",
+    div: \\"div\\",
+    pre: \\"pre\\",
+    code: \\"code\\"
+  }, props.components);
+  return _jsxs(_Fragment, {
+    children: [_jsx(_components.h1, {
+      children: \\"Example\\"
+    }), \\"\\\\n\\", _jsxs(_components.figure, {
+      className: \\"preview\\",
+      children: [_jsx(_components.p, {
+        children: _jsx(_components.figcaption, {
+          children: \\"Code title\\"
+        })
+      }), _jsx(_components.div, {
+        className: \\"preview-showcase\\",
+        children: _jsx(Foo, {})
+      }), _jsx(_components.div, {
+        className: \\"preview-code\\",
+        children: _jsx(_components.pre, {
+          children: _jsx(_components.code, {
+            className: \\"language-jsx\\",
+            children: \\"<Foo />\\\\n\\"
+          })
+        })
+      })]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = props.components || ({});
+  return MDXLayout ? _jsx(MDXLayout, Object.assign({}, props, {
+    children: _jsx(_createMdxContent, props)
+  })) : _createMdxContent(props);
+}
+export default MDXContent;
 "
+`;
+
+exports[`should transform code blocks into code previews 1`] = `
+"<h1>Example</h1>
+<figure class=\\"preview\\">
+<figcaption>Code title</figcaption>
+<div class=\\"preview-showcase\\">
+<foo>
+</foo></div>
+<div class=\\"preview-code\\">
+<pre><code class=\\"language-jsx\\">&#x3C;Foo />
+</code></pre>
+</div>
+</figure>"
 `;
 
 exports[`should use a custom template when provided in options 1`] = `

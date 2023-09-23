@@ -27,6 +27,11 @@ export interface Options {
   ignoreMissing?: boolean
 
   /**
+   * Whether to support [MDX compiler](https://mdxjs.com/).
+   */
+  mdxJsx?: boolean
+
+  /**
    * Performs arbitrary operation for each interpolation. If the returned value
    * was `undefined`, it behaves differently depending on the
    * `ignoreMissing` option. Otherwise, the returned value will be

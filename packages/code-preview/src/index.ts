@@ -1,7 +1,9 @@
 import { parseAttrs } from 'attributes-parser'
 import type { Root } from 'mdast'
 import { fromMarkdown } from 'mdast-util-from-markdown'
+import { mdxFromMarkdown } from 'mdast-util-mdx'
 import { toMarkdown } from 'mdast-util-to-markdown'
+import { mdxjs } from 'micromark-extension-mdxjs'
 import pupa from 'pupa'
 import { convert, type Test } from 'unist-util-is'
 import { visit, SKIP, EXIT } from 'unist-util-visit'
@@ -16,11 +18,15 @@ export type * from './types.js'
  * @param options - The configuration options for the plugin.
  * @returns A function that transforms the MDAST tree.
  */
-export default function remarkCodePreview(options: Options = {}) {
+export default function remarkCodePreview(
+  this: unknown,
+  options: Options = {}
+) {
   const {
     template = DEFAULT_TEMPLATE,
     test = DEFAULT_TEST,
     data,
+    mdxJsx,
     ...pupaOptions
   } = options
   const assert = convert(test as Test)
@@ -31,7 +37,7 @@ export default function remarkCodePreview(options: Options = {}) {
    *
    * @param mdast - The MDAST tree to transform.
    */
-  return function transform(mdast: Root) {
+  return (mdast: Root) => {
     visit(mdast, 'code', (node, index = 0, parent) => {
       if (!assert(node, index, parent)) return
 
@@ -47,7 +53,11 @@ export default function remarkCodePreview(options: Options = {}) {
         },
         pupaOptions
       )
-      const previewTree = fromMarkdown(renderedTemplate)
+
+      const previewTree = fromMarkdown(renderedTemplate, {
+        extensions: mdxJsx ? [mdxjs()] : null,
+        mdastExtensions: mdxJsx ? [mdxFromMarkdown()] : null
+      })
 
       // Replace the node tree with the preview tree
       const len = parent?.children?.length

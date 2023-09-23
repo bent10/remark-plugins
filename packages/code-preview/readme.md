@@ -23,8 +23,8 @@ import { Foo } from 'foo'
 
 # Example
 
-```jsx title="Code title"
-<Foo />
+```html title="Code title"
+<div class="foo">Hello, World!</div>
 ```
 ````
 
@@ -33,10 +33,16 @@ And our module `example.js` looks as follows:
 ```js
 import { readFile } from 'node:fs/promises'
 import { remark } from 'remark'
+import rehypeRaw from 'rehype-raw'
+import rehypeStringify from 'rehype-stringify'
 import remarkCodePreview from 'remark-code-preview'
+import remarkRehype from 'remark-rehype'
 
 remark()
   .use(remarkCodePreview)
+  .use(remarkRehype, { allowDangerousHtml: true })
+  .use(rehypeRaw)
+  .use(rehypeStringify, { allowDangerousHtml: true })
   .process(await readFile('example.mdx'), (err, file) => {
     if (err) throw err
     console.log(String(file))
@@ -45,20 +51,18 @@ remark()
 
 Now, running `node example.js` yields:
 
-````md
-import { Foo } from 'foo'
-
-# Example
-
-<figure class='preview'>
+````html
+<h1>Example</h1>
+<figure class="preview">
 <figcaption>Code title</figcaption>
-<div class='preview-showcase'>
-<Foo />
+<div class="preview-showcase">
+<div class="foo">Hello, World!</div>
 </div>
-<div class='preview-code'>
-
-```jsx title="Code title"
-<Foo />
+<div class="preview-code">
+<pre><code class="language-html">&#x3C;div class='foo'>Hello, World!&#x3C;/div>
+</code></pre>
+</div>
+</figure>
 ```
 
 </div>
@@ -175,6 +179,10 @@ Data to interpolate into the template. You can provide additional data to be use
 ### `ignoreMissing?: boolean`
 
 By default, the plugin throws a `MissingValueError` when a placeholder resolves to `undefined`. Setting this option to `true` ignores it and leaves the placeholder as is.
+
+### `mdxJsx?: boolean`
+
+Whether to support [MDX compiler](https://mdxjs.com/).
 
 ### `transform?: (data: { value: unknown; key: string }) => unknown`
 
