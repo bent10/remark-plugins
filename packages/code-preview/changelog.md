@@ -1,3 +1,10 @@
+# remark-code-preview [1.2.0](https://github.com/bent10/remark-plugins/compare/remark-code-preview@1.1.0...remark-code-preview@1.2.0) (2023-09-23)
+
+
+### Features
+
+* replace `test` options with `preview` attribute, for flexibility ([109d722](https://github.com/bent10/remark-plugins/commit/109d722c65bda2d29eddbd6e22f5b0ba49b24e5d))
+
 # remark-code-preview [1.1.0](https://github.com/bent10/remark-plugins/compare/remark-code-preview@1.0.0...remark-code-preview@1.1.0) (2023-09-23)
 
 
