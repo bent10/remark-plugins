@@ -1,14 +1,7 @@
-import type { Code, Parent } from 'mdast'
-
 /**
  * Options for configuring the remarkCodePreview plugin.
  */
 export interface Options {
-  /**
-   * A function to test nodes for code block transformation eligibility.
-   */
-  test?: TestFunction
-
   /**
    * The code preview template to use.
    */
@@ -42,12 +35,3 @@ export interface Options {
    */
   transform?: (data: { value: unknown; key: string }) => unknown
 }
-
-/**
- * Check if a code node passes a test.
- */
-export type TestFunction = (
-  node: Code,
-  index?: number,
-  parent?: Parent
-) => boolean | void

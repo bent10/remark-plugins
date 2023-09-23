@@ -5,9 +5,8 @@ import { mdxFromMarkdown } from 'mdast-util-mdx'
 import { toMarkdown } from 'mdast-util-to-markdown'
 import { mdxjs } from 'micromark-extension-mdxjs'
 import pupa from 'pupa'
-import { convert, type Test } from 'unist-util-is'
 import { visit, SKIP, EXIT } from 'unist-util-visit'
-import { DEFAULT_TEMPLATE, DEFAULT_TEST } from './constants.js'
+import { ATTR_PATTERN, DEFAULT_TEMPLATE } from './constants.js'
 import type { Options } from './types.js'
 
 export type * from './types.js'
@@ -22,14 +21,7 @@ export default function remarkCodePreview(
   this: unknown,
   options: Options = {}
 ) {
-  const {
-    template = DEFAULT_TEMPLATE,
-    test = DEFAULT_TEST,
-    data,
-    mdxJsx,
-    ...pupaOptions
-  } = options
-  const assert = convert(test as Test)
+  const { template = DEFAULT_TEMPLATE, data, mdxJsx, ...pupaOptions } = options
   const formatedTemplate = formatTemplate(template)
 
   /**
@@ -39,10 +31,13 @@ export default function remarkCodePreview(
    */
   return (mdast: Root) => {
     visit(mdast, 'code', (node, index = 0, parent) => {
-      if (!assert(node, index, parent)) return
+      const { preview, ...meta } = parseAttrs(node.meta || '')
+
+      if (!preview) return
+
+      node.meta = node.meta?.replace(ATTR_PATTERN, '')
 
       const code = toMarkdown(node)
-      const meta = parseAttrs(node.meta || '')
       const renderedTemplate = pupa(
         formatedTemplate,
         {

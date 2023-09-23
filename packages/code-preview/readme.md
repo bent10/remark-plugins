@@ -19,11 +19,9 @@ To use `remark-code-preview` in your remark-based Markdown processing pipeline, 
 Say we have the following file `example.mdx`:
 
 ````md
-import { Foo } from 'foo'
-
 # Example
 
-```html title="Code title"
+```html preview title="Code title"
 <div class="foo">Hello, World!</div>
 ```
 ````
@@ -51,23 +49,19 @@ remark()
 
 Now, running `node example.js` yields:
 
-````html
+```html
 <h1>Example</h1>
 <figure class="preview">
-<figcaption>Code title</figcaption>
-<div class="preview-showcase">
-<div class="foo">Hello, World!</div>
-</div>
-<div class="preview-code">
-<pre><code class="language-html">&#x3C;div class='foo'>Hello, World!&#x3C;/div>
+  <figcaption>Code title</figcaption>
+  <div class="preview-showcase">
+    <div class="foo">Hello, World!</div>
+  </div>
+  <div class="preview-code">
+    <pre><code class="language-html">&#x3C;div class='foo'>Hello, World!&#x3C;/div>
 </code></pre>
-</div>
+  </div>
 </figure>
 ```
-
-</div>
-</figure>
-````
 
 ## Options
 
@@ -79,15 +73,11 @@ The code preview template to use. You can customize the preview layout using pla
 
 The default template looks like this:
 
-```markdown
-<figure class='preview'>
+```html
+<figure className="preview">
   <figcaption>{title}</figcaption>
-  <div class='preview-showcase'>
-    {preview}
-  </div>
-  <div class='preview-code'>
-    {code}
-  </div>
+  <div className="preview-showcase">{preview}</div>
+  <div className="preview-code">{code}</div>
 </figure>
 ```
 
@@ -100,7 +90,7 @@ import remarkCodePreview from 'remark-code-preview'
 
 const customTemplate = `
 <figure>
-  <div class='preview-container'>
+  <div className='preview-container'>
     {preview}
   </div>
   <figcaption>{title}</figcaption>
@@ -118,58 +108,14 @@ remark()
 Yields:
 
 ```md
-import { Foo } from 'foo'
-
 # Example
 
 <figure>
 <div class='preview-container'>
-<Foo />
+<div class="foo">Hello, World!</div>
 </div>
 <figcaption>Code title</figcaption>
 </figure>
-```
-
-### `test?: TestFunction`
-
-A function to test nodes for code block transformation eligibility. You can define your own logic to determine which code blocks to transform.
-
-Default test function:
-
-```js
-({ lang = '' }) => {
-  return (
-    ['react', 'jsx', 'vue', 'vue.js', 'vue-template', 'svelte'].indexOf(
-      lang as string
-    ) !== -1
-  );
-}
-```
-
-```ts
-type TestFunction = (
-  node: Code,
-  index?: number,
-  parent?: Parent
-) => boolean | void
-```
-
-You can define a custom test function to specify which code blocks to transform. For example, only transform code blocks with a specific language:
-
-```js
-import { unified } from 'unified'
-import rehypeStringify from 'rehype-stringify'
-import remarkCodePreview from 'remark-code-preview'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-
-const customTest = node => node.lang === 'custom-language'
-
-const processor = unified()
-  .use(remarkParse)
-  .use(remarkCodePreview, { test: customTest })
-  .use(remarkRehype, { allowDangerousHtml: true })
-  .use(rehypeStringify, { allowDangerousHtml: true })
 ```
 
 ### `data?: { [key: string]: unknown }`

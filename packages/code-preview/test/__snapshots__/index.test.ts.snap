@@ -1,9 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`should not transform code blocks that do not match the test function 1`] = `
-"\`\`\`python
-# This is a Python code block
-print('Hello, World!')
+exports[`should not transform code blocks that do not have \`preview\` attribute 1`] = `
+"\`\`\`jsx
+<Foo />
 \`\`\`
 "
 `;

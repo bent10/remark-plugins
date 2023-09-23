@@ -14,7 +14,7 @@ it('should transform code blocks into code previews', async () => {
     .use(rehypeRaw)
     .use(rehypeStringify, { allowDangerousHtml: true }).process(`# Example
 
-\`\`\`html title="Code title"
+\`\`\`html preview title="Code title"
 <div class='foo'>Hello, World!</div>
 \`\`\`
 `)
@@ -27,7 +27,7 @@ it('should support mdx compiler', async () => {
 
 # Example
 
-\`\`\`jsx title="Code title"
+\`\`\`jsx preview title="Code title"
 <Foo />
 \`\`\`
 `
@@ -55,18 +55,17 @@ it('should use a custom template when provided in options', async () => {
   const file = await remark().use(remarkCodePreview, {
     template,
     ignoreMissing: true
-  }).process(`\`\`\`html
+  }).process(`\`\`\`html preview
 <div class='foo'>Hello, World!</div>
 \`\`\``)
 
   expect(String(file)).toMatchSnapshot()
 })
 
-it('should not transform code blocks that do not match the test function', async () => {
+it('should not transform code blocks that do not have `preview` attribute', async () => {
   const inputMarkdown = `
-\`\`\`python
-# This is a Python code block
-print('Hello, World!')
+\`\`\`jsx
+<Foo />
 \`\`\`
     `
 
