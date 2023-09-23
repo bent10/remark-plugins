@@ -61,10 +61,10 @@ exports[`should transform code blocks into code previews 1`] = `
 <figure class=\\"preview\\">
 <figcaption>Code title</figcaption>
 <div class=\\"preview-showcase\\">
-<foo>
-</foo></div>
+<div class=\\"foo\\">Hello, World!</div>
+</div>
 <div class=\\"preview-code\\">
-<pre><code class=\\"language-jsx\\">&#x3C;Foo />
+<pre><code class=\\"language-html\\">&#x3C;div class='foo'>Hello, World!&#x3C;/div>
 </code></pre>
 </div>
 </figure>"
@@ -74,12 +74,12 @@ exports[`should use a custom template when provided in options 1`] = `
 "<figure class='foo'>
 <figcaption>{title}</figcaption>
 <div class='foo-preview'>
-<Foo />
+<div class='foo'>Hello, World!</div>
 </div>
 <div class='foo-code'>
 
-\`\`\`jsx
-<Foo />
+\`\`\`html
+<div class='foo'>Hello, World!</div>
 \`\`\`
 
 </div>

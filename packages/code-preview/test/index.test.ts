@@ -19,12 +19,10 @@ it('should transform code blocks into code previews', async () => {
 \`\`\`
 `)
 
-  console.log(file.toString())
-
-  // expect(String(file)).toMatchSnapshot()
+  expect(String(file)).toMatchSnapshot()
 })
 
-it.skip('should support mdx compiler', async () => {
+it('should support mdx compiler', async () => {
   const mdx = `import { Foo } from 'foo'
 
 # Example
@@ -41,7 +39,7 @@ it.skip('should support mdx compiler', async () => {
   expect(String(file)).toMatchSnapshot()
 })
 
-it.skip('should use a custom template when provided in options', async () => {
+it('should use a custom template when provided in options', async () => {
   const template = `
 <figure class='foo'>
 <figcaption>{title}</figcaption>
@@ -57,14 +55,14 @@ it.skip('should use a custom template when provided in options', async () => {
   const file = await remark().use(remarkCodePreview, {
     template,
     ignoreMissing: true
-  }).process(`\`\`\`jsx
-<Foo />
+  }).process(`\`\`\`html
+<div class='foo'>Hello, World!</div>
 \`\`\``)
 
   expect(String(file)).toMatchSnapshot()
 })
 
-it.skip('should not transform code blocks that do not match the test function', async () => {
+it('should not transform code blocks that do not match the test function', async () => {
   const inputMarkdown = `
 \`\`\`python
 # This is a Python code block
