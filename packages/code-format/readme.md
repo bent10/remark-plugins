@@ -19,8 +19,8 @@ yarn add remark-code-format --dev
 Once you've installed the plugin, you can use it in your remark configuration. Here's an example of how to configure it:
 
 ```js
-const remark = require('remark')
-const remarkCodeFormat = require('remark-code-format')
+import { remark } from 'remark'
+import remarkCodeFormat from 'remark-code-format'
 
 const markdown = `
 \`\`\`html prettier
