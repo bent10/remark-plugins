@@ -1,3 +1,10 @@
+## remark-code-format [1.0.2](https://github.com/bent10/remark-plugins/compare/remark-code-format@1.0.1...remark-code-format@1.0.2) (2023-09-25)
+
+
+### Bug Fixes
+
+* **doc:** usage example ([40c57cc](https://github.com/bent10/remark-plugins/commit/40c57cc5d01e4337502a142b9c89b31ac0ae7ed0))
+
 ## remark-code-format [1.0.1](https://github.com/bent10/remark-plugins/compare/remark-code-format@1.0.0...remark-code-format@1.0.1) (2023-09-21)
 
 
