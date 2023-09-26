@@ -1,6 +1,6 @@
 {
   "name": "remark-code-jsx-renderer",
-  "description": "A remark to render JSX code blocks using a custom renderer and components",
+  "description": "A remark plugin to render JSX code blocks using a custom renderer and components",
   "version": "0.0.0-development",
   "publishConfig": {
     "access": "public"

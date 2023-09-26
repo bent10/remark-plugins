@@ -1,6 +1,6 @@
 # remark-code-jsx-renderer
 
-A [remark](https://github.com/remarkjs/remark) to render JSX code blocks using a custom renderer and components. This plugin is especially useful when you want to incorporate React JSX code directly into your Markdown documents and control how it's rendered.
+A [remark](https://github.com/remarkjs/remark) plugin to render JSX code blocks using a custom renderer and components. This plugin is especially useful when you want to incorporate React JSX code directly into your Markdown documents and control how it's rendered.
 
 ## Install
 
