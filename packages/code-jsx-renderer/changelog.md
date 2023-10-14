@@ -1,3 +1,11 @@
+## remark-code-jsx-renderer [1.1.3](https://github.com/bent10/remark-plugins/compare/remark-code-jsx-renderer@1.1.2...remark-code-jsx-renderer@1.1.3) (2023-10-14)
+
+
+### Bug Fixes
+
+* **deps:** `ncu -u` ([e7add3f](https://github.com/bent10/remark-plugins/commit/e7add3f090ebeae00045a96b7b60ea1c159ae591))
+* resolves `TS18047` ([4b32fb8](https://github.com/bent10/remark-plugins/commit/4b32fb850030305216871b8d1e308d5c9a1ea899))
+
 ## remark-code-jsx-renderer [1.1.2](https://github.com/bent10/remark-plugins/compare/remark-code-jsx-renderer@1.1.1...remark-code-jsx-renderer@1.1.2) (2023-09-22)
 
 
