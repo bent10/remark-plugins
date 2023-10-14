@@ -43,7 +43,9 @@ export default function remarkCodeJsxRenderer(
   add('toMarkdownExtensions', mdxToMarkdown())
 
   return (mdast: Root) => {
-    visit(mdast, 'code', (node, index = 0, parent) => {
+    visit(mdast, 'code', (node, index, parent) => {
+      if (index === null) return
+
       // support for inline options, only for the `unwrap` option.
       // ```jsx renderable="{ unwrap: true }"
       // ```
