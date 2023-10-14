@@ -1,4 +1,4 @@
-import { parseAttrs } from 'attributes-parser'
+import parseAttrs from 'attributes-parser'
 import { transformSync } from '@babel/core'
 import * as acorn from 'acorn'
 import type { Root } from 'mdast'

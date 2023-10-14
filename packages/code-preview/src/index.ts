@@ -1,4 +1,4 @@
-import { parseAttrs } from 'attributes-parser'
+import parseAttrs from 'attributes-parser'
 import type { Root } from 'mdast'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { mdxFromMarkdown } from 'mdast-util-mdx'

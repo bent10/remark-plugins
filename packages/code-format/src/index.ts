@@ -1,4 +1,4 @@
-import { parseAttrs } from 'attributes-parser'
+import parseAttrs from 'attributes-parser'
 import type { Code, Root } from 'mdast'
 import * as prettier from 'prettier'
 import { selectAll } from 'unist-util-select'
