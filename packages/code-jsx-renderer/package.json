@@ -46,13 +46,13 @@
     "format": "prettier . --write --cache-location ../../node_modules/.prettier --ignore-path ../../.prettierignore"
   },
   "dependencies": {
-    "@babel/core": "^7.22.20",
+    "@babel/core": "^7.23.2",
     "@babel/preset-react": "^7.22.15",
-    "attributes-parser": "^2.0.0",
+    "attributes-parser": "^2.1.2",
     "mdast-util-mdx": "^3.0.0",
-    "micromark-extension-mdxjs": "^2.0.0"
+    "micromark-extension-mdxjs": "^3.0.0"
   },
   "devDependencies": {
-    "@types/babel__core": "^7.20.2"
+    "@types/babel__core": "^7.20.3"
   }
 }
