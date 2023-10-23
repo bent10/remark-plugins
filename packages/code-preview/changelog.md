@@ -1,3 +1,10 @@
+## remark-code-preview [1.2.2](https://github.com/bent10/remark-plugins/compare/remark-code-preview@1.2.1...remark-code-preview@1.2.2) (2023-10-23)
+
+
+### Bug Fixes
+
+* **deps:** ncu ([6badc4f](https://github.com/bent10/remark-plugins/commit/6badc4f9f6fdf9d026c6c5738d2c20d1dc9bfa74))
+
 ## remark-code-preview [1.2.1](https://github.com/bent10/remark-plugins/compare/remark-code-preview@1.2.0...remark-code-preview@1.2.1) (2023-10-14)
 
 
