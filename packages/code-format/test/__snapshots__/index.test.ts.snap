@@ -42,7 +42,7 @@ exports[`should handle unsupported code block languages 1`] = `
 "\`\`\`unsupported-language prettier
 const user: { [key: string]: string 
 | number | boolean } = {
- name: \\"John Doe\\", age: 30 };
+ name: "John Doe", age: 30 };
 \`\`\`
 "
 `;

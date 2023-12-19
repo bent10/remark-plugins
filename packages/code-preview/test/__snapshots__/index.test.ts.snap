@@ -8,37 +8,37 @@ exports[`should not transform code blocks that do not have \`preview\` attribute
 `;
 
 exports[`should support mdx compiler 1`] = `
-"import {Fragment as _Fragment, jsx as _jsx, jsxs as _jsxs} from \\"react/jsx-runtime\\";
+"import {Fragment as _Fragment, jsx as _jsx, jsxs as _jsxs} from "react/jsx-runtime";
 import {Foo} from 'foo';
 function _createMdxContent(props) {
   const _components = {
-    code: \\"code\\",
-    div: \\"div\\",
-    figcaption: \\"figcaption\\",
-    figure: \\"figure\\",
-    h1: \\"h1\\",
-    p: \\"p\\",
-    pre: \\"pre\\",
+    code: "code",
+    div: "div",
+    figcaption: "figcaption",
+    figure: "figure",
+    h1: "h1",
+    p: "p",
+    pre: "pre",
     ...props.components
   };
   return _jsxs(_Fragment, {
     children: [_jsx(_components.h1, {
-      children: \\"Example\\"
-    }), \\"\\\\n\\", _jsxs(_components.figure, {
-      className: \\"preview\\",
+      children: "Example"
+    }), "\\n", _jsxs(_components.figure, {
+      className: "preview",
       children: [_jsx(_components.p, {
         children: _jsx(_components.figcaption, {
-          children: \\"Code title\\"
+          children: "Code title"
         })
       }), _jsx(_components.div, {
-        className: \\"preview-showcase\\",
+        className: "preview-showcase",
         children: _jsx(Foo, {})
       }), _jsx(_components.div, {
-        className: \\"preview-code\\",
+        className: "preview-code",
         children: _jsx(_components.pre, {
           children: _jsx(_components.code, {
-            className: \\"language-jsx\\",
-            children: \\"<Foo />\\\\n\\"
+            className: "language-jsx",
+            children: "<Foo />\\n"
           })
         })
       })]
@@ -59,13 +59,13 @@ export default function MDXContent(props = {}) {
 
 exports[`should transform code blocks into code previews 1`] = `
 "<h1>Example</h1>
-<figure class=\\"preview\\">
+<figure class="preview">
 <figcaption>Code title</figcaption>
-<div class=\\"preview-showcase\\">
-<div class=\\"foo\\">Hello, World!</div>
+<div class="preview-showcase">
+<div class="foo">Hello, World!</div>
 </div>
-<div class=\\"preview-code\\">
-<pre><code class=\\"language-html\\">&#x3C;div class='foo'>Hello, World!&#x3C;/div>
+<div class="preview-code">
+<pre><code class="language-html">&#x3C;div class='foo'>Hello, World!&#x3C;/div>
 </code></pre>
 </div>
 </figure>"
