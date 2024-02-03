@@ -1,3 +1,10 @@
+## remark-code-format [1.0.7](https://github.com/bent10/remark-plugins/compare/remark-code-format@1.0.6...remark-code-format@1.0.7) (2024-02-03)
+
+
+### Bug Fixes
+
+* **deps:** ncu ([2ecbbd2](https://github.com/bent10/remark-plugins/commit/2ecbbd26ad5c47821485bf5d0665db4b495de9ed))
+
 ## remark-code-format [1.0.6](https://github.com/bent10/remark-plugins/compare/remark-code-format@1.0.5...remark-code-format@1.0.6) (2023-12-19)
 
 
