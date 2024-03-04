@@ -1,3 +1,10 @@
+## remark-code-jsx-renderer [1.1.8](https://github.com/bent10/remark-plugins/compare/remark-code-jsx-renderer@1.1.7...remark-code-jsx-renderer@1.1.8) (2024-03-04)
+
+
+### Bug Fixes
+
+* **deps:** ncu ([c52a6c9](https://github.com/bent10/remark-plugins/commit/c52a6c9fdcc90e28cb5d742a62242a28e75156c9))
+
 ## remark-code-jsx-renderer [1.1.7](https://github.com/bent10/remark-plugins/compare/remark-code-jsx-renderer@1.1.6...remark-code-jsx-renderer@1.1.7) (2024-02-03)
 
 
