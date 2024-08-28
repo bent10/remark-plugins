@@ -1,3 +1,11 @@
+## remark-code-format [1.0.8](https://github.com/bent10/remark-plugins/compare/remark-code-format@1.0.7...remark-code-format@1.0.8) (2024-08-28)
+
+
+### Bug Fixes
+
+* avoid backreference ([c2c1726](https://github.com/bent10/remark-plugins/commit/c2c1726b55afb1b6634da789bb056d2d4cfb6be5))
+* **deps:** ncu ([19d62bb](https://github.com/bent10/remark-plugins/commit/19d62bbca708dac44288a02b278c0472a50b5876))
+
 ## remark-code-format [1.0.7](https://github.com/bent10/remark-plugins/compare/remark-code-format@1.0.6...remark-code-format@1.0.7) (2024-02-03)
 
 
