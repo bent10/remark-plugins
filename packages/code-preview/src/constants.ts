@@ -14,4 +14,4 @@ export const DEFAULT_TEMPLATE = `
 `
 
 export const ATTR_PATTERN =
-  /\s*preview(?:=([""])?.*?\1)?$|preview(?:=([""])?.*?\1)?\s*/g
+  /\s*preview(?:=(?:"[^"]*"|'[^']*'|[^"'\s]*))?$|preview(?:=(?:"[^"]*"|'[^']*'|[^"'\s]*))?\s*/g

@@ -39,7 +39,9 @@ export default function remarkCodeFormat(options?: prettier.Options) {
               ? (inlineOptions as prettier.Options)
               : {})
           })
-        } catch {}
+        } catch {
+          // empty
+        }
       }
     }
   }
